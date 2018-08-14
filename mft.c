@@ -864,7 +864,7 @@ SetResidentAttributeDataLength(PDEVICE_EXTENSION Vcb,
                 PNTFS_ATTR_RECORD Destination = (PNTFS_ATTR_RECORD)((ULONG_PTR)FileRecord + AttrOffset);
                 PNTFS_ATTR_RECORD NewRecord;
                 LARGE_INTEGER AttribDataSize;
-                PVOID AttribData;
+                PVOID AttribData = NULL;
                 ULONG NewRecordLength;
                 ULONG EndAttributeOffset;
                 ULONG LengthWritten;
@@ -2944,8 +2944,8 @@ BrowseIndexEntries(PDEVICE_EXTENSION Vcb,
     NTSTATUS Status;
     PINDEX_ENTRY_ATTRIBUTE IndexEntry;
     PNTFS_ATTR_CONTEXT IndexAllocationContext;
-    PNTFS_ATTR_CONTEXT BitmapContext;
-    PCHAR *BitmapMem;
+    PNTFS_ATTR_CONTEXT BitmapContext = NULL;
+    PCHAR *BitmapMem = NULL;
     ULONG *BitmapPtr;
     RTL_BITMAP  Bitmap;
 

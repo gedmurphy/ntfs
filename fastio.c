@@ -25,7 +25,8 @@
 
 /* INCLUDES *****************************************************************/
 
-#include <ntddk.h>
+//#include <ntddk.h>
+#include "ntfs.h"
 
 #define NDEBUG
 #include <debug.h>

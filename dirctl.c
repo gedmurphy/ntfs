@@ -197,7 +197,7 @@ static NTSTATUS
 NtfsGetFullDirectoryInformation(PDEVICE_EXTENSION DeviceExt,
                                 PFILE_RECORD_HEADER FileRecord,
                                 ULONGLONG MFTIndex,
-                                PFILE_FULL_DIRECTORY_INFORMATION Info,
+                                PFILE_FULL_DIR_INFORMATION Info,
                                 ULONG BufferLength,
                                 PULONG Written,
                                 BOOLEAN First)
@@ -520,7 +520,7 @@ NtfsQueryDirectory(PNTFS_IRP_CONTEXT IrpContext)
                     Status = NtfsGetFullDirectoryInformation(DeviceExtension,
                                                              FileRecord,
                                                              MFTRecord,
-                                                             (PFILE_FULL_DIRECTORY_INFORMATION)Buffer,
+                                                             (PFILE_FULL_DIR_INFORMATION)Buffer,
                                                              BufferLength,
                                                              &Written,
                                                              Buffer0 == NULL);

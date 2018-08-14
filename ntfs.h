@@ -1,8 +1,22 @@
 #ifndef NTFS_H
 #define NTFS_H
 
+#if _MSC_VER >= 1200
+#pragma warning(push)
+#pragma warning(disable:4201) // nonstandard extension used : nameless struct/union
+#pragma warning(disable:4200) // nonstandard extension used: zero-sized array in struct/union
+#endif
+
 #include <ntifs.h>
+#ifdef __REACTOS__
 #include <pseh/pseh2.h>
+#else
+#define _SEH2_TRY               __try
+#define _SEH2_EXCEPT            __except
+#define _SEH2_YIELD(content)    content
+#define _SEH2_END
+#define _SEH2_GetExceptionCode() GetExceptionCode()
+#endif
 
 #ifdef __GNUC__
 #define INIT_SECTION __attribute__((section ("INIT")))
